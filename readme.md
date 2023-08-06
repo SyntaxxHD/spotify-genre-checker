@@ -2,9 +2,44 @@
 
 This is a Node.js application that checks the genre of songs in a Spotify playlist against the Beatport music platform. It uses the Spotify and Beatport APIs to retrieve song and genre information.
 
-## Getting Started
+## Windows Users
 
-Here are the steps you need to follow to run this application:
+### Getting Started (Windows)
+
+Follow these steps to run the application on Windows:
+
+1. **Download the Executable**
+
+   - Visit the "Releases" tab on the [GitHub repository page](https://github.com/SyntaxxHD/spotify-genre-checker/releases).
+   - Download the latest executable version for Windows (`spotify-genre-checker.exe`).
+
+2. **Create a Spotify Developer Account and Obtain Client Credentials**
+
+   - Visit the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/).
+   - Log in with your Spotify account, or create a new one if you don't have one already.
+   - Once you're logged in, click on "Create app" and fill in the necessary information.
+   - Make sure you add `http://localhost:2973/callback` to "Redirect URIs"
+   - After creating the app, you will be provided with a client ID and client secret. Keep these handy for the next step.
+
+3. **Set Up the Application**
+
+   - Create a `.env` file in the programs directory and add your Spotify client ID and client secret:
+
+     ```properties
+     SPOTIFY_CLIENT_ID=your_spotify_client_id
+     SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
+     ```
+
+4. **Run the Executable**
+
+   - Locate the downloaded executable file (`spotify-genre-checker.exe`).
+   - Open a terminal in that folder and run `spotify-genre-checker.exe`. Otherwise the window will close after the program exits.
+
+## Other Operating Systems (macOS and Linux)
+
+### Getting Started (macOS and Linux)
+
+Follow these steps to run the application on macOS and Linux:
 
 1. **Install Node.js**
 
@@ -22,25 +57,25 @@ Here are the steps you need to follow to run this application:
 
    - Clone this repository to your local machine by running the following command in your terminal:
 
-     ```
-     git clone [repository_url]
+     ```bash
+     git clone https://github.com/SyntaxxHD/spotify-genre-checker.git
      ```
 
    - Navigate into the project directory:
 
-     ```
-     cd [project_directory]
+     ```bash
+     cd spotify-genre-checker
      ```
 
    - Install the required dependencies by running:
 
-     ```
+     ```bash
      npm install
      ```
 
    - Create a `.env` file in the project directory and add your Spotify client ID and client secret:
 
-     ```
+     ```properties
      SPOTIFY_CLIENT_ID=your_spotify_client_id
      SPOTIFY_CLIENT_SECRET=your_spotify_client_secret
      ```
@@ -49,7 +84,7 @@ Here are the steps you need to follow to run this application:
 
    You can now run the application using the following command:
 
-   ```
+   ```bash
    node index.js
    ```
 
