@@ -1,6 +1,6 @@
 # Spotify Playlist Genre Checker
 
-This is a Node.js application that checks the genre of songs in a Spotify playlist against the Beatport music platform. It uses the Spotify and Beatport APIs to retrieve song and genre information.
+This is a Node.js application that goes through a Spotify playlist and checks on Beatport if the users prompted genre does match the genre of the tracks inside the playlist.
 
 ## Windows Users
 
