@@ -8,7 +8,7 @@ module.exports = async playlistId => {
   return fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks?fields=items(track(name,artists(name)))`, {
     method: 'GET',
     headers: {
-      'Authorization': `Bearer ${process.env.SPOTIFY_ACCESS_TOKEN}`,
+      Authorization: `Bearer ${process.env.SPOTIFY_ACCESS_TOKEN}`,
       'Content-Type': 'application/json'
     }
   })
@@ -25,6 +25,6 @@ module.exports = async playlistId => {
       return tracks
     })
     .catch(error => {
-      throw new Error(`Failed to fetch Spotify playlist details: ${error.message}`)
+      return new Error(`Failed to fetch Spotify playlist details: ${error.message}`)
     })
 }

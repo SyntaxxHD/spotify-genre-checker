@@ -5,10 +5,10 @@ module.exports = async (songName, spotifyArtists) => {
   // Split the Spotify artists by comma and take the first one as main artist
   const mainArtist = spotifyArtists.split(',')[0].trim()
 
-  return fetch(`https://www.beatport.com/_next/data/Y__xxtotwfbe0qXHMmbP1/search.json?q=${encodeURIComponent(songName + ' ' + mainArtist)}`, {
+  return fetch(`https://www.beatport.com/_next/data/v5vg3gkA13hvf7yJeDWQw/en/search.json?q=${encodeURIComponent(songName + ' ' + mainArtist)}`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     }
   })
     .then(response => response.json())

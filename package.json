@@ -1,6 +1,6 @@
 {
   "name": "spotify-genre-checker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Goes through a Spotify playlist and checks on Beatport if the users prompted genre does match the genre of the tracks",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,9 @@
   },
   "pkg": {
     "assets": "pages/*",
-    "targets": [ "node18-win-x64" ],
+    "targets": [
+      "node18-win-x64"
+    ],
     "outputPath": "dist"
   },
   "bin": "index.js",

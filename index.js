@@ -15,12 +15,12 @@ async function main() {
         type: 'text',
         name: 'link',
         message: 'Enter the Spotify playlist link:',
-        validate: link => link.startsWith('https://open.spotify.com/playlist/') ? true : 'Invalid Spotify playlist link. It needs to start with https://open.spotify.com/playlist/'
+        validate: link => (link.startsWith('https://open.spotify.com/playlist/') ? true : 'Invalid Spotify playlist link. It needs to start with https://open.spotify.com/playlist/')
       },
       {
         type: 'text',
         name: 'genre',
-        message: 'Enter the genre:'
+        message: 'Enter one or multiple genres (seperated by comma):'
       }
     ])
 
@@ -28,8 +28,16 @@ async function main() {
 
     if (!link || !genre) return
 
-    const id = link.split('/').pop()
+    let id = link.split('/').pop()
 
+    if (id.includes('?')) {
+      id = id.split('?')[0]
+    }
+
+    const allGenres = genre
+      .split(',')
+      .trim()
+      .map(item => item.trim())
     const playlistDetails = await getSpotifyPlaylistDetails(id)
 
     for (let song of playlistDetails) {
@@ -38,7 +46,7 @@ async function main() {
       if (beatPortSongDetails.length == 0) {
         // Song is not found on Beatport
         console.log(chalk.red(`${song.artist} - ${song.name}`))
-      } else if (beatPortSongDetails.genre != genre) {
+      } else if (!allGenres.includes(beatPortSongDetails.genre)) {
         // Song is found on Beatport but does not have the same genre
         console.log(chalk.yellow(`${song.artist} - ${song.name}`), chalk.bold.yellow(`(${beatPortSongDetails.genre})`))
       } else {
