@@ -34,10 +34,7 @@ async function main() {
       id = id.split('?')[0]
     }
 
-    const allGenres = genre
-      .split(',')
-      .trim()
-      .map(item => item.trim())
+    const allGenres = genre.split(',').map(item => item.trim())
     const playlistDetails = await getSpotifyPlaylistDetails(id)
 
     for (let song of playlistDetails) {
